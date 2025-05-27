@@ -51,8 +51,7 @@ interface StudentClassConstructor {
   new (student: StudentConstructor): StudentInterface;
 }
 
-class StudentClass implements StudentInterface {
-  firstName: string;
+class StudentClass implements StudentInterface {firstName: string;
   lastName: string;
 
   constructor({ firstName, lastName }: StudentConstructor) {
