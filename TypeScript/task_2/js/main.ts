@@ -11,33 +11,42 @@ interface TeacherInterface {
 }
 
 class Director implements DirectorInterface {
-    workFromHome(): string {
+    workFromHome(): string
+    {
         return "Working from home";
     }
-    getCoffeeBreak(): string {
+    getCoffeeBreak(): string
+    {
         return "Getting a coffee break";
     }
-    workDirectorTasks(): string {
+    workDirectorTasks(): string
+    {
         return "Getting to director tasks";
     }
 }
 
 class Teacher implements TeacherInterface {
-    workFromHome(): string {
+    workFromHome(): string 
+    {
         return "Cannot work from home";
     }
-    getCoffeeBreak(): string {
+    getCoffeeBreak(): string 
+    {
         return "Cannot have a break";
     }
-    workTeacherTasks(): string {
+    workTeacherTasks(): string 
+    {
         return "Getting to work";
     }
 }
 
 function createEmployee(salary: number | string): Director | Teacher {
-    if (typeof salary === "number" && salary < 500) {
+    if (typeof salary === "number" && salary < 500) 
+    {
         return new Teacher();
-    } else {
+    } 
+    else 
+    {
         return new Director();
     }
 }
@@ -46,16 +55,20 @@ console.log(createEmployee(200).constructor.name);
 console.log(createEmployee(1000).constructor.name);
 console.log(createEmployee("$500").constructor.name);
 
-function isDirector(employee: Director | Teacher): employee is Director {
-  return (employee as Director).workDirectorTasks !== undefined;
+function isDirector(employee: Director | Teacher): employee is Director
+{
+    return (employee as Director).workDirectorTasks !== undefined;
 }
 
 function executeWork(employee: Director | Teacher): string {
-  if (isDirector(employee)) {
-    return employee.workDirectorTasks();
-  } else {
-    return employee.workTeacherTasks();
-  }
+    if (isDirector(employee))
+    {
+        return employee.workDirectorTasks();
+    } 
+    else 
+    {
+        return employee.workTeacherTasks();
+    }
 }
 
 console.log(executeWork(createEmployee(200)));
@@ -64,9 +77,12 @@ console.log(executeWork(createEmployee(1000)));
 type Subjects = 'Math' | 'History';
 
 function teachClass(todayClass: Subjects): string {
-    if (todayClass === 'Math') {
+    if (todayClass === 'Math')
+    {
         return 'Teaching Math';
-    } else {
+    }
+    else
+    {
         return 'Teaching History';
     }
 }
